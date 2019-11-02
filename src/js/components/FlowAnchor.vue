@@ -11,11 +11,10 @@ export default {
         to: { type: String, required: true },
         srOnly: { type: Boolean, default: false },
         duration: { type: Number, default: 300 },
-        animate: { type: Number, default: "linear" }
+        animate: { type: Number, default: "easeInQuart" }
     },
     data() {
-        const navbarHeight = 0;
-        return { navbarHeight };
+        return {};
     },
     computed: {
         navbarHeight: function() {
@@ -57,7 +56,7 @@ export default {
                     documentHeight - targetOffset < windowHeight
                         ? documentHeight - windowHeight
                         : targetOffset
-                ) + this.navbarHeight;
+                ) - this.navbarHeight;
 
             if ("requestAnimationFrame" in window === false) {
                 window.scroll(0, targetOffsetToScroll);
@@ -73,8 +72,8 @@ export default {
                         ? performance.now()
                         : new Date().getTime();
                 const time = Math.min(1, (now - startTime) / duration);
-                console.log(time);
                 const timeFunction = Easings[easing](time);
+
                 window.scroll(
                     0,
                     Math.ceil(
@@ -90,7 +89,6 @@ export default {
 
                 requestAnimationFrame(scroll);
             }
-
             scroll();
         }
     }
