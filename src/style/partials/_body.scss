@@ -1,11 +1,17 @@
 body {
-  color: $font_color;
+  background-color: $gray-100;
+  padding-top: 56px;
+  color: $font-color;
 
-  // Property Nesting
-  font: {
-    size: $font_size;
-    family: $font_family;
+  a {
+    text-decoration: none;
+    color: $font-color;
   }
 
-  line-height: $line_height;
+  font: {
+    size: $font-size;
+    family: $font-family;
+  }
+
+  line-height: $line-height;
 }

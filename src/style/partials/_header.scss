@@ -1,0 +1,17 @@
+header {
+
+  &.header-bg {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-x: 90%
+  }
+
+  &.vh-100-withnav {
+    height: calc(100vh - 261px);
+  }
+
+  .gradi {
+    background-image: -webkit-gradient(linear, right bottom, right top, from(rgba(248, 249, 250, 1)),
+        to(rgba(248, 249, 250, .1)));
+  }
+}

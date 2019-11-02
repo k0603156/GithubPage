@@ -1,0 +1,51 @@
+section {
+  .container-fluid {
+    h1 {
+      color: $subtitle-color;
+
+      font: {}
+    }
+
+    p {
+      color: $content-color;
+    }
+
+    .card {
+      .img-wrapper {
+        overflow-x: scroll;
+        -ms-overflow-style: none;
+        max-height: 275px;
+      }
+
+      ::-webkit-scrollbar {
+        display: none;
+      }
+    }
+
+    .skillset {
+      p {
+        font-weight: 600;
+
+        a.skillLlink {
+          .badge {
+            font-size: 0.875rem;
+            margin-left: 0.25rem;
+
+            &:hover {
+              opacity: 0.8;
+            }
+          }
+        }
+      }
+
+      .division {
+        display: inline-block;
+        padding: 2.5px 10px;
+        margin-right: 7.5px;
+        min-width: 80px;
+        border: 1px solid black;
+        border-radius: 3px;
+      }
+    }
+  }
+}

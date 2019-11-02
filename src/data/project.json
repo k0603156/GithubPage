@@ -1,0 +1,92 @@
+{
+  "project": [{
+      "projectName": "Intagram Clone",
+      "projectSubtitle": "인스타그램 클론코딩",
+      "src": "",
+      "alt": "Intagram Clone CaptureImg",
+      "stack": {
+        "frontend": "React+hooks apollo graphql+hooks styled-component",
+        "backend": "Express graphql Prisma mailgun"
+      },
+      "github": {
+        "frontend": "https://github.com/k0603156/nomadprismagram-frontend",
+        "backend": "https://github.com/k0603156/nomadprismagram",
+        "url": null
+      }
+    },
+    {
+      "projectName": "Traveler",
+      "projectSubtitle": "여행을 다니며 기록을 남기고 싶어 만들기 시작한 앱",
+      "src": null,
+      "alt": "Traveler CaptureImg",
+      "stack": {
+        "frontend": "React Material-ui",
+        "backend": "Express Sequelize Passport Mysql"
+      },
+      "github": {
+        "frontend": null,
+        "backend": null,
+        "url": "https://github.com/k0603156/traveler"
+      }
+    }, {
+      "projectName": "TheCook-Admin",
+      "projectSubtitle": "...",
+      "src": null,
+      "alt": "TheCook-Admin CaptureImg",
+      "stack": {
+        "frontend": "Vue Nuxt.js Vuetify vuex",
+        "backend": "Django docker AWS PUSHER OneSignal"
+      },
+      "github": {
+        "frontend": null,
+        "backend": null,
+        "url": "https://github.com/k0603156/TheCook-Admin"
+      }
+    },
+    {
+      "projectName": "칼칼닷컴",
+      "projectSubtitle": "실제 판매페이지",
+      "src": "kalkal.png",
+      "alt": "칼칼.com CaptureImg",
+      "stack": {
+        "frontend": "html css jQuery",
+        "backend": "php/gnuBoard,youngcart"
+      },
+      "github": {
+        "frontend": null,
+        "backend": null,
+        "url": null
+      }
+    },
+    {
+      "projectName": "그랜드우성닷컴",
+      "projectSubtitle": "실제 판매페이지",
+      "src": "gwcom.png",
+      "alt": "그랜드우성.com CaptureImg",
+      "stack": {
+        "frontend": "html css jQuery",
+        "backend": "php/gnuBoard,youngcart"
+      },
+      "github": {
+        "frontend": null,
+        "backend": null,
+        "url": null
+      }
+    },
+    {
+      "projectName": "더쿡.kr",
+      "projectSubtitle": "소개사이트",
+      "src": "cookkr.png",
+      "alt": "더쿡.kr CaptureImg",
+      "stack": {
+        "frontend": "html css jQuery",
+        "backend": "php/gnuBoard"
+      },
+      "github": {
+        "frontend": null,
+        "backend": null,
+        "url": null
+      }
+    }
+  ]
+}

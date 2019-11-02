@@ -3,7 +3,7 @@
     [
       "@babel/preset-env",
       {
-        "modules": "commonjs",
+        "modules": "amd",
         "targets": {
           "ie": "8",
           "edge": "17",
