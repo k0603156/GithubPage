@@ -1087,7 +1087,7 @@ amdefine@>=0.0.4:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/amdefine/-/amdefine-1.0.1.tgz#4a5282ac164729e93619bcfd3ad151f817ce91f5"
 
-animejs@^3.1.0:
+animejs@^3.1.0, animejs@~3:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/animejs/-/animejs-3.1.0.tgz#748a90fc1d4bef3efed64508af9a6a82babf5c47"
 
@@ -5579,6 +5579,13 @@ verror@1.10.0:
 vm-browserify@^1.0.1:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/vm-browserify/-/vm-browserify-1.1.0.tgz#bd76d6a23323e2ca8ffa12028dc04559c75f9019"
+
+vue-animejs@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/vue-animejs/-/vue-animejs-2.1.1.tgz#26057e59c9410283419c77526da5241d1d0fc465"
+  integrity sha512-m+PTCXuCprvLVntQmpVo0StewYb0P0SKxaHBCOWm44ShjCN+IZMJrJfhZFSwaIRv34eG1boH3UqzH45speXirA==
+  dependencies:
+    animejs "~3"
 
 vue-axios@^2.1.5:
   version "2.1.5"

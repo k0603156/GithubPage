@@ -1,51 +1,88 @@
 section {
+  h2 {
+    text-align: center;
+    color: $subtitle-color;
+    font-family: $font-family-main;
+  }
   .container-fluid {
-    h1 {
-      color: $subtitle-color;
-
-      font: {}
-    }
-
-    p {
-      color: $content-color;
-    }
-
-    .card {
-      .img-wrapper {
-        overflow-x: scroll;
-        -ms-overflow-style: none;
-        max-height: 275px;
-      }
-
-      ::-webkit-scrollbar {
-        display: none;
-      }
-    }
-
-    .skillset {
-      p {
-        font-weight: 600;
-
-        a.skillLlink {
-          .badge {
-            font-size: 0.875rem;
-            margin-left: 0.25rem;
-
-            &:hover {
-              opacity: 0.8;
-            }
+    margin-top: 2rem;
+    $color: rgb(255, 255, 255);
+    $width: 240px;
+    $half-width: calc(#{$width} / 2);
+    $height: calc(#{$width} * 0.5766);
+    $endPoint: calc(#{$height} / 2);
+    $svgTransY: calc(calc(-240px * 0.5766) / 2);
+    .cRow {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      article {
+        position: relative;
+        width: $width;
+        height: $height;
+        background-color: $color;
+        margin: calc(#{$height}/ 2) 10px;
+        &:before,
+        &:after {
+          content: "";
+          position: absolute;
+          width: 0;
+          border-left: $half-width solid transparent;
+          border-right: $half-width solid transparent;
+        }
+        &:before {
+          bottom: 100%;
+          border-bottom: $endPoint solid $color;
+        }
+        &:after {
+          top: 100%;
+          width: 0;
+          border-top: $endPoint solid $color;
+        }
+        &:hover {
+          svg {
+            animation: dash 0.5s;
+            animation-fill-mode: forwards;
           }
         }
-      }
-
-      .division {
-        display: inline-block;
-        padding: 2.5px 10px;
-        margin-right: 7.5px;
-        min-width: 80px;
-        border: 1px solid black;
-        border-radius: 3px;
+        figure {
+          display: flex;
+          flex-direction: column;
+          flex-wrap: nowrap;
+          justify-content: center;
+          height: 100%;
+          font-size: $font-size;
+          line-height: 1;
+          color: #000;
+          text-align: center;
+          h2 {
+            font-size: 1rem;
+          }
+          p {
+            font-size: 70%;
+            line-height: 1.2;
+            width: 100%;
+          }
+        }
+        svg {
+          position: absolute;
+          transform: translateY(#{$svgTransY});
+          z-index: 10;
+          stroke-width: 2;
+          stroke: rgba(255, 0, 0, 0.4);
+          stroke-dasharray: 834;
+          stroke-dashoffset: 834;
+        }
       }
     }
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dashoffset: 834;
+  }
+  100% {
+    stroke-dashoffset: 0;
   }
 }

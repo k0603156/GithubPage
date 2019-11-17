@@ -2,7 +2,7 @@ body {
   background-color: $gray-100;
   padding-top: $nav-bar-height;
   color: $font-color;
-
+  min-width: 320px;
   a {
     text-decoration: none;
     color: $font-color;
