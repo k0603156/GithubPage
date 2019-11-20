@@ -1,8 +1,9 @@
 {
-  "project": [{
+  "project": [
+    {
       "projectName": "Intagram Clone",
       "projectSubtitle": "인스타그램 클론코딩",
-      "src": "",
+      "src": null,
       "alt": "Intagram Clone CaptureImg",
       "stack": {
         "frontend": "React+hooks apollo graphql+hooks styled-component",
@@ -16,7 +17,7 @@
     },
     {
       "projectName": "Traveler",
-      "projectSubtitle": "여행을 다니며 기록을 남기고 싶어 만들기 시작한 앱",
+      "projectSubtitle": "여행 기록을 남길 수 있는 앱",
       "src": null,
       "alt": "Traveler CaptureImg",
       "stack": {
@@ -28,7 +29,23 @@
         "backend": null,
         "url": "https://github.com/k0603156/traveler"
       }
-    }, {
+    },
+    {
+      "projectName": "Trello",
+      "projectSubtitle": "트렐로 앱 구현해보기",
+      "src": null,
+      "alt": "Trello_Clone CaptureImg",
+      "stack": {
+        "frontend": "Vue vue-router Vuex axios dragula ",
+        "backend": "Express Sequelize Passport"
+      },
+      "github": {
+        "frontend": null,
+        "backend": null,
+        "url": "https://github.com/k0603156/Trello"
+      }
+    },
+    {
       "projectName": "TheCook-Admin",
       "projectSubtitle": "...",
       "src": null,
@@ -79,8 +96,23 @@
       "src": "cookkr.png",
       "alt": "더쿡.kr CaptureImg",
       "stack": {
-        "frontend": "html css jQuery",
+        "frontend": "html css jQuery PWA",
         "backend": "php/gnuBoard"
+      },
+      "github": {
+        "frontend": null,
+        "backend": null,
+        "url": null
+      }
+    },
+    {
+      "projectName": "This Page",
+      "projectSubtitle": "Github Page + cafe24 node.js",
+      "src": null,
+      "alt": "Github Page CaptureImg",
+      "stack": {
+        "frontend": "Vue Vuex axios SASS Disqus",
+        "backend": "Express... ing"
       },
       "github": {
         "frontend": null,

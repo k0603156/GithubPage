@@ -1,0 +1,70 @@
+#section-profile {
+  position: relative;
+  font-family: $font-family-default;
+  font-size: 0.8rem;
+  $lg-table-translateY: 80px;
+  > div.container-fluid {
+    @media screen and (max-width: map-get($container-max-widths, lg)) {
+      padding-bottom: $lg-table-translateY;
+    }
+  }
+  .profile-image {
+    width: 200px;
+    height: 200px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -130%);
+    box-shadow: inset 5px 5px 5px black;
+    @include transition-default;
+    @media screen and (max-width: map-get($container-max-widths, sm)) {
+      transform: scale(0.75) translate(-65%, -130%);
+    }
+  }
+
+  div#profile-table {
+    margin: 50px auto 0 0;
+    @include profile-table;
+    &::after {
+      position: absolute;
+      content: "Profile";
+
+      font-size: 3rem;
+      line-height: 3rem;
+      right: -100%;
+      top: 50%;
+      @media screen and (max-width: map-get($container-max-widths, lg)) {
+        display: none;
+      }
+    }
+  }
+  div#skill-table {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 500px;
+    margin: 0 0 0 auto;
+    top: -100px;
+    #tree {
+      width: 100%;
+    }
+    @include profile-table;
+    @media screen and (max-width: map-get($container-max-widths, lg)) {
+      top: $lg-table-translateY;
+    }
+    &::after {
+      position: absolute;
+      content: "Skill";
+
+      font-size: 3rem;
+      line-height: 3rem;
+      left: -100%;
+      top: 50%;
+      @media screen and (max-width: map-get($container-max-widths, lg)) {
+        display: none;
+      }
+    }
+  }
+}

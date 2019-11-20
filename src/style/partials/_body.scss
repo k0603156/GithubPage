@@ -1,17 +1,20 @@
-body {
-  background-color: $gray-100;
-  padding-top: $nav-bar-height;
-  color: $font-color;
-  min-width: 320px;
-  a {
-    text-decoration: none;
+html {
+  body {
+    margin: 8px;
+    box-shadow: -2px -2px 5px darkgray;
+    padding-top: $nav-bar-height;
     color: $font-color;
-  }
+    min-width: 320px;
+    a {
+      text-decoration: none;
+      color: $font-color;
+    }
 
-  font: {
-    size: $font-size;
-    family: $font-family;
-  }
+    font: {
+      size: $font-size-default;
+      family: $font-family-default;
+    }
 
-  line-height: $line-height;
+    line-height: $line-height;
+  }
 }

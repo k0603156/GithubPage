@@ -1,9 +1,15 @@
-header {
-  height: 80vh;
+#header {
+  // position: relative;
+  top: -8px;
+  height: 90vh;
+  width: 20%;
+  min-width: 100px;
+  min-height: 568px;
+  background: url("../data/image/sample.jpg");
+  box-shadow: 4px 4px 5px black;
   &.header-bg {
     background-repeat: no-repeat;
     background-size: cover;
-    background-position-y: 40%;
     background-position-x: center;
   }
 
@@ -11,56 +17,77 @@ header {
     height: calc(100vh - 261px);
   }
 
-  .gradi {
+  #gradi-header {
+    height: 100%;
     background-image: -webkit-gradient(
-      linear,
-      right bottom,
-      right center,
-      from(rgba(248, 249, 250, 1)),
-      to(rgba(68, 68, 68, 0.1))
-    );
+        linear,
+        left center,
+        right top,
+        from(rgba(30, 34, 46, 0.2)),
+        to(rgba(175, 175, 175, 0.5))
+      ),
+      -webkit-gradient(linear, left bottom, left top, from(rgba(17, 17, 17, 0.8)), to(rgba(0, 0, 0, 0.1)));
   }
   #title-wrapper {
     position: absolute;
-    top: 40%;
-    left: 40%;
-    transform: translate(-50%, -50%);
+    top: 10%;
+    left: 0;
+    padding: 30px;
+    min-width: 260px;
     height: auto;
+    @include transition-default;
+
     h1 {
+      position: relative;
+      padding-right: 5px;
+      z-index: 10;
       font-family: $font-family-main;
-      font-size: 3rem;
+      font-size: calc(1vw + 0.8rem);
       font-weight: 600;
-      color: #e5e5e5;
-      text-shadow: -3px 4px 5px #d5d5d5, 4px 3px 5px #d5d5d5;
+      color: rgb(20, 15, 36);
+      letter-spacing: 2px;
+      &:after {
+        color: rgba(255, 255, 255, 0.3);
+        content: attr(data-text);
+        left: 0px;
+        top: 2px;
+        position: absolute;
+        z-index: -1;
+      }
     }
     svg {
       linearGradient {
         stop:nth-child(1) {
-          stop-color: rgb(255, 0, 0);
+          stop-color: rgb(212, 37, 37);
           stop-opacity: 1;
         }
         stop:nth-child(2) {
-          stop-color: rgb(255, 0, 0);
-          stop-opacity: 0.7;
+          stop-color: rgb(212, 37, 37);
+          stop-opacity: 0.8;
         }
         stop:nth-child(3) {
-          stop-color: rgb(255, 0, 0);
-          stop-opacity: 0.5;
+          stop-color: rgb(212, 37, 37);
+          stop-opacity: 0.6;
         }
         stop:nth-child(4) {
-          stop-color: rgb(255, 0, 0);
+          stop-color: rgb(212, 37, 37);
           stop-opacity: 0.3;
         }
         stop:nth-child(5) {
-          stop-color: rgb(255, 0, 0);
+          stop-color: rgb(212, 37, 37);
           stop-opacity: 0.1;
         }
       }
       polyline {
         fill: none;
-        stroke-width: calc(10 - 1vw);
-        opacity: 0.7;
+        stroke-width: calc(7 - 0.3vw);
+        opacity: 0.8;
       }
+    }
+    @media screen and (max-width: map-get($container-max-widths, sm)) {
+      transform: rotateZ(-90deg);
+      top: 30%;
+      left: 5%;
     }
   }
 }
