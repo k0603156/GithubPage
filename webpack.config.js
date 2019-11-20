@@ -1,6 +1,7 @@
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const VueLoaderPlugin = require("vue-loader/lib/plugin");
+const ManifestPlugin = require("webpack-manifest-plugin");
 const path = require("path");
 module.exports = {
   mode: "development",
@@ -18,8 +19,18 @@ module.exports = {
     extensions: ["*", ".js", ".vue", ".json"]
   },
   plugins: [
+    new ManifestPlugin({
+      fileName: "./manifest/manifest.json",
+      seed: {
+        name: "Kim's portfolio",
+        short_name: "Kimyongkuk portfolio",
+        background_color: "#ffbcbc",
+        start_url: "/"
+      }
+    }),
     new HtmlWebpackPlugin({
       title: "Resume",
+      manifest: "./manifest/manifest.json",
       template: path.join(__dirname, "./src/index.html"),
       inject: true,
       showErrors: true,
