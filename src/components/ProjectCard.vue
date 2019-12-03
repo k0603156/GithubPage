@@ -25,12 +25,15 @@
       <h2>{{ projectName }}</h2>
       <p>{{ projectSubtitle }}</p>
       <a class="btnOpenModal" href @click.prevent="openModal">view</a>
+      <ul>
+        <li v-for="(item, key) in githubUpdated" :key="key">{{key}}:{{item}}</li>
+      </ul>
+      {{d}}
     </figure>
   </article>
 </template>
 <script>
 import { mapMutations } from "vuex";
-import { TimelineMax } from "gsap";
 export default {
   props: {
     project: {
@@ -39,14 +42,7 @@ export default {
     }
   },
   data() {
-    const {
-      projectName,
-      projectSubtitle
-      // src,
-      // alt,
-      // stack,
-      // github
-    } = this.project;
+    const { projectName, projectSubtitle, github } = this.project;
     const githubUpdated = {
       frontend: null,
       backend: null,
@@ -54,61 +50,57 @@ export default {
     };
     return {
       projectName,
-      projectSubtitle
-      // src,
-      // alt,
-      // stack,
-      // github,
-      // githubUpdated
+      projectSubtitle,
+      github,
+      githubUpdated
     };
   },
   beforeMount() {
-    // this.github.frontend &&
-    //   this.getDate(this.github.frontend).then(
-    //     r => (this.githubUpdated.frontend = r)
-    //   );
-    // this.github.backend &&
-    //   this.getDate(this.github.backend).then(
-    //     r => (this.githubUpdated.backend = r)
-    //   );
-    // this.github.url &&
-    //   this.getDate(this.github.url).then(r => (this.githubUpdated.url = r));
+    this.github.frontend &&
+      this.getDate(this.github.frontend).then(
+        result => (this.githubUpdated.frontend = result)
+      );
+    this.github.backend &&
+      this.getDate(this.github.backend).then(
+        result => (this.githubUpdated.backend = result)
+      );
+    this.github.url &&
+      this.getDate(this.github.url).then(
+        result => (this.githubUpdated.url = result)
+      );
   },
-
+  computed: {
+    d: function() {
+      // this.getDate(this.github.url).then(s => {
+      //   return s;
+      // });
+    }
+  },
   methods: {
     ...mapMutations(["SET_PROJECT_MODAL_DATA"]),
     openModal: function() {
       this.$emit("open");
       this.SET_PROJECT_MODAL_DATA(this.project);
     },
-
-    getDate: function(url) {
-      const repoName = url.substr(url.lastIndexOf("/") + 1);
-      return this.axios
-        .get(`https://api.github.com/repos/k0603156/${repoName}/commits`)
-        .then(response => {
-          const today = new Date();
-          const before = new Date(response.data[0].commit.author.date);
-          const d = (today - before) / (3600000 * 24);
-          const h = (d - parseInt(d)) * 24;
-          const m = (h - parseInt(h)) * 60;
-
-          return `${Math.round(d)}일 ${Math.round(h)}시간 ${Math.round(
-            m
-          )}분 전`;
-        });
+    parseRepoName: function(url) {
+      return url.substr(url.lastIndexOf("/") + 1);
     },
-    hasGithub: function() {
-      const { frontend, backend, url } = this.github;
-      return frontend || backend || url;
+    getRepoData: function(repoName) {
+      return this.axios.get(
+        `https://api.github.com/repos/k0603156/${repoName}/commits`
+      );
     },
-    hasGithubFrontOrBack: function() {
-      const { frontend, backend } = this.github;
-      return frontend || backend;
+    getPassedTime: function(time) {
+      const d = (new Date() - new Date(time)) / (3600000 * 24),
+        h = (d - parseInt(d)) * 24,
+        m = (h - parseInt(h)) * 60;
+      return { d, h, m };
     },
-    hasGithubUrlOnly: function() {
-      const { url } = this.github;
-      return url;
+    getDate: async function(url) {
+      const repoName = this.parseRepoName(url);
+      const { data } = await this.getRepoData(repoName);
+      const { d, h, m } = this.getPassedTime(data[0].commit.author.date);
+      return `${Math.round(d)}일 ${Math.round(h)}시간 ${Math.round(m)}분 전`;
     }
   }
 };

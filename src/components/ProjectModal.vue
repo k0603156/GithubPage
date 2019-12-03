@@ -1,26 +1,25 @@
 <template>
   <Modal>
-    <div slot="header">
+    <template slot="header" v-scroll="_scroll">
       <h2>
         {{ data.projectName }}
-        <a href @click.prevent="$emit('close')" class="modal-default-button"
-          >&times;</a
-        >
+        <a
+          href
+          @click.prevent="$emit('close')"
+          class="modal-default-button"
+        >&times;</a>
       </h2>
       <h3>{{ data.projectSubtitle }}</h3>
+    </template>
+
+    <div slot="body" v-if="data.src" class="videoWrapper">
+      <!-- <img :src="require(`../data/image/${data.src}`)" :alt="data.alt" /> -->
+      <video :src="require(`../data/video/${data.src}`)" controls />
     </div>
-    <div slot="body">
-      <div v-if="data.src" class="imgWrapper">
-        <img
-          :src="require(`../data/image/${data.src}`)"
-          class="card-img"
-          :alt="data.alt"
-        />
-      </div>
-    </div>
-    <div slot="footer">
-      <dt class="col-md-4">Stack</dt>
-      <dd class="col-md-8">
+
+    <div slot="footer" class="row">
+      <dt class="px-0">Stack</dt>
+      <dd class="col-md-12">
         <dl class="row">
           <dt class="col-md-4">Frontend</dt>
           <dd class="col-md-8">{{ data.stack.frontend }}</dd>
@@ -29,8 +28,8 @@
         </dl>
       </dd>
       <template v-if="hasGithub">
-        <dt class="col-md-4">Github</dt>
-        <dd class="col-md-8">
+        <dt class="col-md-12">Github</dt>
+        <dd class="col-md-12">
           <dl class="row">
             <template v-if="hasGithubFrontOrBack">
               <dt class="col-md-4">Frontend</dt>
@@ -54,6 +53,18 @@
 import Modal from "./Modal.vue";
 import { mapState } from "vuex";
 export default {
+  directives: {
+    scroll: {
+      inserted: function(el, binding) {
+        let f = function(evt) {
+          if (binding.value(evt, el)) {
+            window.removeEventListener("scroll", f);
+          }
+        };
+        window.addEventListener("scroll", f);
+      }
+    }
+  },
   components: {
     Modal
   },
@@ -77,6 +88,10 @@ export default {
   },
   mounted() {},
   methods: {
+    _scroll: function(evt, el) {
+      console.log(1);
+      return true;
+    },
     getDate: function(url) {
       const repoName = url.substr(url.lastIndexOf("/") + 1);
       return this.axios

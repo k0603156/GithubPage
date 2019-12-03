@@ -68,13 +68,17 @@ module.exports = {
         loader: "vue-loader"
       },
       {
-        test: /\.(png|jpg)$/,
+        test: /\.(png|jpg|gif)$/,
         use: {
           loader: "file-loader"
         }
       },
       {
         test: /\.svg$/,
+        loader: "file-loader"
+      },
+      {
+        test: /\.mp4$/,
         loader: "file-loader"
       }
     ]

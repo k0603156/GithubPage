@@ -3,167 +3,236 @@
 </template>
 <script>
 import * as d3 from "d3";
-import data from "../data/data";
+import treeData from "../data/skill";
 export default {
   el: "#tree",
   mounted() {
     this.$nextTick(function() {
-      const skillBox = this.$el;
-      const diameter = 800;
-      const margin = { top: 15, right: 30, bottom: 15, left: 40 };
-      const width = skillBox.getBoundingClientRect().width;
+      // Setup SVG Element - Start
 
-      const dy = width / 6;
-      const dx = 15;
-      const tree = d3.tree().nodeSize([dx, dy]);
-      const diagonal = d3
-        .linkHorizontal()
-        .x(d => d.y)
-        .y(d => d.x);
-      const root = d3.hierarchy(data);
+      var margin = { top: 20, right: 20, bottom: 30, left: 20 },
+        width = 500 - margin.left - margin.right,
+        height = 500 - margin.top - margin.bottom;
 
-      root.x0 = dy / 2;
-      root.y0 = 0;
-      root.descendants().forEach((d, i) => {
-        d.id = i;
-        d._children = d.children;
-        if (d.depth && d.data.name.length !== 7) d.children = null;
+      var svg = d3
+        .select("#tree")
+        .append("svg")
+        .attr("width", width + margin.right + margin.left)
+        .attr("height", height + margin.top + margin.bottom);
+
+      var g = svg
+        .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+      // Setup SVG Element - End
+
+      var i = 0,
+        duration = 750,
+        root;
+
+      // Setup tree
+
+      var treemap = d3.tree().size([width, height]);
+
+      // Get the root
+
+      root = d3.hierarchy(treeData, function(d) {
+        return d.children;
       });
 
-      const svg = d3
-        .create("svg")
-        .attr("viewBox", [-margin.left, -margin.top, width, dx])
-        .style("font", "15px sans-serif")
-        .style("user-select", "none");
+      root.x0 = 0;
+      root.y0 = width / 3;
 
-      const gLink = svg
-        .append("g")
-        .attr("fill", "none")
-        .attr("stroke", "#555")
-        .attr("stroke-opacity", 0.5)
-        .attr("stroke-width", 2);
+      // Collapse all children, except root's
 
-      const gNode = svg
-        .append("g")
-        .attr("cursor", "pointer")
-        .attr("pointer-events", "all");
+      root.children.forEach(collapse);
+      // root.children = null;
 
-      function update(source) {
-        const duration = d3.event && d3.event.altKey ? 2500 : 250;
-        const nodes = root.descendants().reverse();
-        const links = root.links();
+      // Let's draw the tree
+      draw(root);
 
-        // Compute the new tree layout.
-        tree(root);
+      // console.log(root);
 
-        let left = root;
-        let right = root;
-        root.eachBefore(node => {
-          // console.log(node);
-          if (node.x < left.x) left = node;
-          if (node.x > right.x) right = node;
+      function draw(source) {
+        // Get the treemap, so that we can get nodes and links
+        var treeData = treemap(root);
+
+        // Get nodes and links
+        var nodes = treeData.descendants(),
+          links = treeData.descendants().slice(1);
+
+        // Adjust the position of y of each node. Comment out just this line and see how it's different
+        nodes.forEach(function(d) {
+          d.y = d.depth * 100;
         });
 
-        const height = right.x - left.x + margin.top + margin.bottom;
+        // Add unique id for each node, else it won't work
+        var node = g.selectAll("g.node").data(nodes, function(d) {
+          return d.id || (d.id = ++i);
+        });
 
-        const transition = svg
-          .transition()
-          .duration(duration)
-          .attr("viewBox", [-margin.left, left.x - margin.top, width, height])
-          .tween(
-            "resize",
-            window.ResizeObserver ? null : () => () => svg.dispatch("toggle")
-          );
-
-        // Update the nodes…
-        const node = gNode.selectAll("g").data(nodes, d => d.id);
-
-        // Enter any new nodes at the parent's previous position.
-        const nodeEnter = node
+        // Let's append all enter nodes
+        var nodeEnter = node
           .enter()
           .append("g")
-          .attr("transform", d => `translate(${source.y0},${source.x0})`)
-          .attr("fill-opacity", 0)
-          .attr("stroke-opacity", 0)
-          .on("click", d => {
-            console.log(d);
-            d.children = d.children ? null : d._children;
-            update(d);
-          });
+          .attr("class", "node")
+          .attr("transform", function(d) {
+            return "translate(" + source.x0 + "," + source.y0 + ")";
+          })
+          .on("click", click);
+
+        // Add circle for each enter node, but keep the radius 0
 
         nodeEnter
           .append("circle")
-          .attr("r", 3.5)
-          .attr("fill", d => (d._children ? "#000" : "#ddd"))
-          .attr("stroke-width", 1);
-        //todo: x,text-anchor 하위노드가 추가 되었을 때 nodeCircle보다 안쪽으로 텍스트가 이동하도록 변경
+          .attr("class", "node")
+          .attr("r", 1e-6)
+          .style("fill", function(d) {
+            return d._children ? "lightsteelblue" : "#fff";
+          });
+
+        // Add text
+
         nodeEnter
           .append("text")
-          .attr("dy", "0.31em")
-          .attr("x", d => (d._children ? -6 : 6))
-          .attr("text-anchor", d => (d._children ? "end" : "start"))
-          .text(d => d.data.name)
-          .clone(true)
-          .lower()
-          .attr("stroke-linejoin", "round")
-          .attr("stroke-width", 3)
-          .attr("stroke", "white");
+          .attr("dy", ".35em")
+          .attr("x", function(d) {
+            return d.children || d._children ? -13 : 13;
+          })
+          .attr("text-anchor", function(d) {
+            return d.children || d._children ? "end" : "start";
+          })
+          .text(function(d) {
+            return d.data.name;
+          });
 
-        // Transition nodes to their new position.
-        const nodeUpdate = node
-          .merge(nodeEnter)
-          .transition(transition)
-          .attr("transform", d => `translate(${d.y},${d.x})`)
-          .attr("fill-opacity", 1)
-          .attr("stroke-opacity", 1);
+        // https://github.com/d3/d3-selection/issues/86 to check what merge does
+        var nodeUpdate = nodeEnter.merge(node);
 
-        // Transition exiting nodes to the parent's new position.
-        const nodeExit = node
+        // Do transition of node to appropriate position
+        nodeUpdate
+          .transition()
+          .duration(duration)
+          .attr("transform", function(d) {
+            return "translate(" + d.x + "," + d.y + ")";
+          });
+
+        // Let's update the radius now, which was previously zero.
+
+        nodeUpdate
+          .select("circle.node")
+          .attr("r", 5)
+          .style("fill", function(d) {
+            return d._children ? "lightsteelblue" : "#fff";
+          })
+          .attr("cursor", "pointer");
+
+        // Let's work on exiting nodes
+
+        // Remove the node
+
+        var nodeExit = node
           .exit()
-          .transition(transition)
-          .remove()
-          .attr("transform", d => `translate(${source.y},${source.x})`)
-          .attr("fill-opacity", 0)
-          .attr("stroke-opacity", 0);
+          .transition()
+          .duration(duration)
+          .attr("transform", function(d) {
+            return "translate(" + source.x + "," + source.y + ")";
+          })
+          .remove();
 
-        // Update the links…
-        const link = gLink.selectAll("path").data(links, d => d.target.id);
+        // On exit reduce the node circles size to 0
+        nodeExit.select("circle").attr("r", 1e-6);
 
-        // Enter any new links at the parent's previous position.
-        const linkEnter = link
+        // On exit reduce the opacity of text labels
+        nodeExit.select("text").style("fill-opacity", 1e-6);
+
+        // Let's draw links
+
+        var link = g.selectAll("path.link").data(links, function(d) {
+          return d.id;
+        });
+
+        // Work on enter links, draw straight lines
+
+        var linkEnter = link
           .enter()
-          .append("path")
-          .attr("d", d => {
-            const o = { x: source.x0, y: source.y0 };
-            return diagonal({ source: o, target: o });
+          .insert("path", "g")
+          .attr("class", "link")
+          .attr("d", function(d) {
+            var o = { x: source.x0, y: source.y0 };
+            return diagonal(o, o);
           });
 
-        // Transition links to their new position.
-        link
-          .merge(linkEnter)
-          .transition(transition)
-          .attr("d", diagonal);
+        // UPDATE
+        var linkUpdate = linkEnter.merge(link);
 
-        // Transition exiting nodes to the parent's new position.
-        link
+        // Transition back to the parent element position, now draw a link from node to it's parent
+        linkUpdate
+          .transition()
+          .duration(duration)
+          .attr("d", function(d) {
+            return diagonal(d, d.parent);
+          });
+
+        // Remove any exiting links
+        var linkExit = link
           .exit()
-          .transition(transition)
-          .remove()
-          .attr("d", d => {
-            const o = { x: source.x, y: source.y };
-            return diagonal({ source: o, target: o });
-          });
+          .transition()
+          .duration(duration)
+          .attr("d", function(d) {
+            var o = { x: source.x, y: source.y };
+            return diagonal(o, o);
+          })
+          .remove();
 
-        // Stash the old positions for transition.
-        root.eachBefore(d => {
+        // Store the old positions for transition.
+        nodes.forEach(function(d) {
           d.x0 = d.x;
           d.y0 = d.y;
         });
       }
 
-      update(root);
+      function diagonal(s, d) {
+        // Here we are just drawing lines, we can also draw curves, comment out below path for it.
 
-      skillBox.appendChild(svg.node());
+        var path = `M ${s.x} ${s.y}
+          L ${d.x} ${d.y}`;
+
+        // var path = `M ${s.x} ${s.y}
+        //         C ${(s.x + d.x) / 2} ${s.y},
+        //           ${(s.x + d.x) / 2} ${d.y},
+        //           ${d.x} ${d.y}`
+
+        return path;
+      }
+
+      function collapse(d) {
+        if (d.children) {
+          d._children = d.children;
+          d._children.forEach(collapse);
+          d.children = null;
+        }
+      }
+
+      function click(d) {
+        if (d.children) {
+          d._children = d.children;
+          d.children = null;
+        } else {
+          d.children = d._children;
+          d._children = null;
+        }
+        // If d has a parent, collapse other children of that parent
+        if (d.parent) {
+          d.parent.children.forEach(function(element) {
+            if (d !== element) {
+              collapse(element);
+            }
+          });
+        }
+
+        draw(d);
+      }
     });
   }
 };

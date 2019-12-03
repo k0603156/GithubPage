@@ -16,7 +16,7 @@ $nav-bar-height: 0;
   transition-duration: 0.3s;
   transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
 }
-@mixin profile-table {
+@mixin profile-board {
   @media screen and (max-width: map-get($container-max-widths, lg)) {
     max-width: 100%;
   }

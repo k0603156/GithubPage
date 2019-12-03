@@ -1,10 +1,10 @@
 html {
   body {
-    margin: 8px;
+    margin: 5px;
     box-shadow: -2px -2px 5px darkgray;
     padding-top: $nav-bar-height;
     color: $font-color;
-    min-width: 320px;
+    min-width: 315px;
     a {
       text-decoration: none;
       color: $font-color;
@@ -16,5 +16,8 @@ html {
     }
 
     line-height: $line-height;
+    &.fixed {
+      position: fixed;
+    }
   }
 }

@@ -2,8 +2,8 @@
   "project": [
     {
       "projectName": "Intagram Clone",
-      "projectSubtitle": "인스타그램 클론코딩",
-      "src": null,
+      "projectSubtitle": "인스타그램 클론",
+      "src": "instagram_clone.mp4",
       "alt": "Intagram Clone CaptureImg",
       "stack": {
         "frontend": "React+hooks apollo graphql+hooks styled-component",
@@ -13,6 +13,21 @@
         "frontend": "https://github.com/k0603156/nomadprismagram-frontend",
         "backend": "https://github.com/k0603156/nomadprismagram",
         "url": null
+      }
+    },
+    {
+      "projectName": "Trello",
+      "projectSubtitle": "트렐로 앱 구현해보기",
+      "src": "trello.mp4",
+      "alt": "Trello_Clone CaptureImg",
+      "stack": {
+        "frontend": "Vue vue-router Vuex axios dragula ",
+        "backend": "Express Sequelize Passport"
+      },
+      "github": {
+        "frontend": null,
+        "backend": null,
+        "url": "https://github.com/k0603156/Trello"
       }
     },
     {
@@ -30,21 +45,7 @@
         "url": "https://github.com/k0603156/traveler"
       }
     },
-    {
-      "projectName": "Trello",
-      "projectSubtitle": "트렐로 앱 구현해보기",
-      "src": null,
-      "alt": "Trello_Clone CaptureImg",
-      "stack": {
-        "frontend": "Vue vue-router Vuex axios dragula ",
-        "backend": "Express Sequelize Passport"
-      },
-      "github": {
-        "frontend": null,
-        "backend": null,
-        "url": "https://github.com/k0603156/Trello"
-      }
-    },
+
     {
       "projectName": "TheCook-Admin",
       "projectSubtitle": "...",
@@ -62,8 +63,8 @@
     },
     {
       "projectName": "칼칼닷컴",
-      "projectSubtitle": "실제 판매페이지",
-      "src": "kalkal.png",
+      "projectSubtitle": "주방용 칼 관련상품 판매",
+      "src": null,
       "alt": "칼칼.com CaptureImg",
       "stack": {
         "frontend": "html css jQuery",
@@ -77,8 +78,8 @@
     },
     {
       "projectName": "그랜드우성닷컴",
-      "projectSubtitle": "실제 판매페이지",
-      "src": "gwcom.png",
+      "projectSubtitle": "냉장고 판매",
+      "src": null,
       "alt": "그랜드우성.com CaptureImg",
       "stack": {
         "frontend": "html css jQuery",
@@ -92,8 +93,8 @@
     },
     {
       "projectName": "더쿡.kr",
-      "projectSubtitle": "소개사이트",
-      "src": "cookkr.png",
+      "projectSubtitle": "회사 소개사이트",
+      "src": null,
       "alt": "더쿡.kr CaptureImg",
       "stack": {
         "frontend": "html css jQuery PWA",

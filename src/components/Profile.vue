@@ -1,7 +1,7 @@
 <template>
   <fragment>
     <div class="profile-image"></div>
-    <div id="profile-table">
+    <div class="profileBoard" id="board-left">
       <dl class="row">
         <dt class="col-sm-3">이름</dt>
         <dd class="col-sm-9">{{ name }}</dd>
@@ -26,18 +26,16 @@
         <dd class="col-sm-9">
           <dl class="row">
             <template v-for="thing in into">
-              <dt v-bind:key="thing.name" class="col-sm-3">
-                - {{ thing.name }}
-              </dt>
-              <dd v-bind:key="thing.intro" class="col-sm-9">
-                {{ thing.intro }}
-              </dd>
+              <dt v-bind:key="thing.name" class="col-sm-3">- {{ thing.name }}</dt>
+              <dd v-bind:key="thing.intro" class="col-sm-9">{{ thing.intro }}</dd>
             </template>
           </dl>
         </dd>
       </dl>
     </div>
-    <div id="skill-table"><SkillTree /></div>
+    <div class="profileBoard" id="board-right">
+      <SkillTree />
+    </div>
   </fragment>
 </template>
 <script>
@@ -65,6 +63,25 @@ export default {
 
     return { title, name, edu, avatar, email, github, into, major };
   },
-  methods: {}
+  methods: {
+    io: function(el, option) {
+      return new IntersectionObserver(entries => {
+        entries.forEach(({ intersectionRatio, target }) => {
+          if (intersectionRatio > 0) {
+            target.classList.add("animate");
+          } else if (intersectionRatio === 0) {
+            target.classList.remove("animate");
+          }
+        });
+      }, option).observe(el);
+    }
+  },
+  mounted() {
+    document.querySelectorAll(".profileBoard").forEach(el => {
+      this.io(el, {
+        rootMargin: "-45%"
+      });
+    });
+  }
 };
 </script>

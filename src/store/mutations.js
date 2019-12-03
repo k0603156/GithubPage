@@ -5,6 +5,5 @@ export default {
   },
   SET_PROJECT_MODAL_DATA(state, data) {
     state.projectModalData = data;
-    console.log(state.projectModalData);
   }
 };

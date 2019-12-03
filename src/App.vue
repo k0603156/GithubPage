@@ -40,7 +40,6 @@ import { Fragment } from "vue-fragment";
 import { mapState, mapMutations } from "vuex";
 import ProjectData from "./data/project.json";
 import ProfileData from "./data/profile.json";
-import SkillData from "./data/skill.json";
 import animate from "./mixin/animate";
 
 export default {
@@ -62,12 +61,17 @@ export default {
   data: function() {
     return {
       projects: [...ProjectData.project],
-      profile: ProfileData.profile,
-      skill: SkillData.skillList
+      profile: ProfileData.profile
     };
   },
-  mounted() {},
-  methods: { ...mapMutations(["SET_SHOW_PROJECT_MODAL"]) }
+  mounted() {
+    window.addEventListener("touchmove", handleTouchMove, {
+      passive: false
+    });
+  },
+  methods: {
+    ...mapMutations(["SET_SHOW_PROJECT_MODAL"])
+  }
 };
 </script>
 <style lang="scss"></style>

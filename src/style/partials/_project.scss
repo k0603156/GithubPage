@@ -76,6 +76,9 @@ $marginTop: calc(calc(#{$height}/ 2) + #{$svgStroke});
             text-decoration: none;
           }
         }
+        ul {
+          list-style-type: none;
+        }
       }
       svg {
         position: absolute;
