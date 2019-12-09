@@ -24,11 +24,15 @@
     <figure>
       <h2>{{ projectName }}</h2>
       <p>{{ projectSubtitle }}</p>
-      <a class="btnOpenModal" href @click.prevent="openModal">view</a>
+      <div>
+        <a class="btnOpenModal" href @click.prevent="openModal">view</a>
+      </div>
       <ul>
-        <li v-for="(item, key) in githubUpdated" :key="key">{{key}}:{{item}}</li>
+        <li v-for="(item, key) in this.filter(githubUpdated, date => date !== null)" :key="key">
+          <span class="badge badge-secondary">{{key.toUpperCase()}}</span>
+          {{item}}
+        </li>
       </ul>
-      {{d}}
     </figure>
   </article>
 </template>
@@ -69,13 +73,7 @@ export default {
         result => (this.githubUpdated.url = result)
       );
   },
-  computed: {
-    d: function() {
-      // this.getDate(this.github.url).then(s => {
-      //   return s;
-      // });
-    }
-  },
+  computed: {},
   methods: {
     ...mapMutations(["SET_PROJECT_MODAL_DATA"]),
     openModal: function() {
@@ -101,6 +99,11 @@ export default {
       const { data } = await this.getRepoData(repoName);
       const { d, h, m } = this.getPassedTime(data[0].commit.author.date);
       return `${Math.round(d)}일 ${Math.round(h)}시간 ${Math.round(m)}분 전`;
+    },
+    filter: function(obj, predicate) {
+      return Object.keys(obj)
+        .filter(key => predicate(obj[key]))
+        .reduce((res, key) => ((res[key] = obj[key]), res), {});
     }
   }
 };

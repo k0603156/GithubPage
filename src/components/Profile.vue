@@ -1,7 +1,7 @@
 <template>
   <fragment>
     <div class="profile-image"></div>
-    <div class="profileBoard" id="board-left">
+    <div class="profileBoard" id="board-left" data-content="Profile">
       <dl class="row">
         <dt class="col-sm-3">이름</dt>
         <dd class="col-sm-9">{{ name }}</dd>
@@ -21,19 +21,18 @@
         <dd class="col-sm-9">
           <a :href="github">{{ github }}</a>
         </dd>
-
-        <dt class="col-sm-3">관심사</dt>
-        <dd class="col-sm-9">
+        <dt class="col-sm-12 py-3">관심사</dt>
+        <dd class="col-sm-12">
           <dl class="row">
             <template v-for="thing in into">
-              <dt v-bind:key="thing.name" class="col-sm-3">- {{ thing.name }}</dt>
+              <dt v-bind:key="thing.name" class="col-sm-3">{{ thing.name }}</dt>
               <dd v-bind:key="thing.intro" class="col-sm-9">{{ thing.intro }}</dd>
             </template>
           </dl>
         </dd>
       </dl>
     </div>
-    <div class="profileBoard" id="board-right">
+    <div class="profileBoard" id="board-right" data-content="Using">
       <SkillTree />
     </div>
   </fragment>

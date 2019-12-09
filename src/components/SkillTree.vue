@@ -6,12 +6,15 @@ import * as d3 from "d3";
 import treeData from "../data/skill";
 export default {
   el: "#tree",
+  data: function() {
+    return { margin: { top: 20, right: 20, bottom: 30, left: 20 } };
+  },
+  computed: {},
   mounted() {
     this.$nextTick(function() {
-      // Setup SVG Element - Start
-
       var margin = { top: 20, right: 20, bottom: 30, left: 20 },
-        width = 500 - margin.left - margin.right,
+        width =
+          this.$el.getBoundingClientRect().width - margin.left - margin.right,
         height = 500 - margin.top - margin.bottom;
 
       var svg = d3
@@ -95,9 +98,9 @@ export default {
 
         nodeEnter
           .append("text")
-          .attr("dy", ".35em")
+          .attr("dy", "1.35em")
           .attr("x", function(d) {
-            return d.children || d._children ? -13 : 13;
+            return d.children || d._children ? -12 : 12;
           })
           .attr("text-anchor", function(d) {
             return d.children || d._children ? "end" : "start";
@@ -233,6 +236,10 @@ export default {
 
         draw(d);
       }
+    });
+    window.addEventListener("resize", function() {
+      console.log(1);
+      draw(root);
     });
   }
 };

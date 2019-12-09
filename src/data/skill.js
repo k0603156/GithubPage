@@ -5,7 +5,7 @@ export default {
       name: "Web",
       children: [
         {
-          name: "front",
+          name: "Front",
           children: [
             {
               name: "Framework | Lib",
@@ -89,15 +89,20 @@ export default {
         { name: "Postgresql", value: 10066 }
       ]
     },
-    {
-      name: "SCM",
-      children: [{ name: "Git", value: 8833 }]
-    },
+
     {
       name: "Design",
       children: [
         { name: "Photoshop", value: 8833 },
         { name: "Illustrator", value: 3623 }
+      ]
+    },
+    {
+      name: "ETC",
+      children: [
+        { name: "Git", value: 8833 },
+        { name: "PWA", value: 8833 },
+        { name: "Gnuboard", value: 8833 }
       ]
     }
   ]

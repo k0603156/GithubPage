@@ -17,7 +17,7 @@
     },
     {
       "projectName": "Trello",
-      "projectSubtitle": "트렐로 앱 구현해보기",
+      "projectSubtitle": "트렐로 앱 구현하기",
       "src": "trello.mp4",
       "alt": "Trello_Clone CaptureImg",
       "stack": {
@@ -116,7 +116,7 @@
         "backend": "Express... ing"
       },
       "github": {
-        "frontend": null,
+        "frontend": "https://github.com/k0603156/kimyongkuk.resume.builder",
         "backend": null,
         "url": null
       }

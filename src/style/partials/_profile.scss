@@ -33,11 +33,11 @@
     @include profile-board;
     &::after {
       position: absolute;
-      content: "Profile";
+      content: attr(data-content);
       font-size: 3rem;
       line-height: 3rem;
       top: 50%;
-      right: -100%;
+      right: -50%;
       opacity: 0;
       transition-duration: 1.5s;
       transition-timing-function: ease-out;
@@ -47,6 +47,7 @@
     }
     &.animate::after {
       opacity: 1;
+      right: -100%;
     }
   }
   div#board-right {
@@ -74,6 +75,7 @@
 
       .node text {
         font: 10px sans-serif;
+        writing-mode: vertical-rl;
       }
 
       .link {
@@ -88,11 +90,11 @@
     }
     &::after {
       position: absolute;
-      content: "Skill";
+      content: attr(data-content);
       font-size: 3rem;
       line-height: 3rem;
       top: 25%;
-      left: -100%;
+      left: -50%;
       opacity: 0;
       transition-duration: 1.5s;
       transition-timing-function: ease-out;
@@ -102,6 +104,7 @@
     }
     &.animate::after {
       opacity: 1;
+      left: -100%;
     }
   }
 }

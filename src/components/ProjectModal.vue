@@ -28,19 +28,25 @@
         </dl>
       </dd>
       <template v-if="hasGithub">
-        <dt class="col-md-12">Github</dt>
+        <dt class="px-0">Github</dt>
         <dd class="col-md-12">
           <dl class="row">
             <template v-if="hasGithubFrontOrBack">
               <dt class="col-md-4">Frontend</dt>
-              <dd class="col-md-8">{{ data.github.frontend }}</dd>
+              <dd class="col-md-8">
+                <a :href="data.github.frontend">{{ data.github.frontend }}</a>
+              </dd>
 
               <dt class="col-md-4">Backend</dt>
-              <dd class="col-md-8">{{ data.github.backend }}</dd>
+              <dd class="col-md-8">
+                <a :href="data.github.backend">{{ data.github.backend }}</a>
+              </dd>
             </template>
             <template v-else-if="hasGithubUrlOnly">
               <dt class="col-md-4">url</dt>
-              <dd class="col-md-8">{{ data.github.url }}</dd>
+              <dd class="col-md-8">
+                <a :href="data.github.url">{{ data.github.url }}</a>
+              </dd>
             </template>
           </dl>
         </dd>

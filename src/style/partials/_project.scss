@@ -70,14 +70,22 @@ $marginTop: calc(calc(#{$height}/ 2) + #{$svgStroke});
           width: 100%;
         }
         .btnOpenModal {
-          font-size: 0.8rem;
+          font-size: 0.9rem;
           font-weight: 600;
+
           &:hover {
             text-decoration: none;
           }
         }
         ul {
           list-style-type: none;
+          padding: 0;
+          margin: 15px 0 0 0;
+          li {
+            margin-top: 1px;
+            .badge {
+            }
+          }
         }
       }
       svg {
