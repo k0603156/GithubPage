@@ -10,8 +10,23 @@
         "backend": "Express graphql Prisma mailgun"
       },
       "github": {
-        "frontend": "https://github.com/k0603156/nomadprismagram-frontend",
-        "backend": "https://github.com/k0603156/nomadprismagram",
+        "frontend": "https://github.com/k0603156/Instagram_frontend",
+        "backend": "https://github.com/k0603156/Instagram_backend",
+        "url": null
+      }
+    },
+    {
+      "projectName": "KakaoTalk",
+      "projectSubtitle": "카카오톡 클론",
+      "src": null,
+      "alt": "KakaoTalk Clone CaptureImg",
+      "stack": {
+        "frontend": "React+hooks SASS Redux",
+        "backend": ""
+      },
+      "github": {
+        "frontend": "https://github.com/k0603156/KakaoTalk",
+        "backend": null,
         "url": null
       }
     },
@@ -42,7 +57,7 @@
       "github": {
         "frontend": null,
         "backend": null,
-        "url": "https://github.com/k0603156/traveler"
+        "url": "https://github.com/k0603156/Traveler"
       }
     },
 
@@ -116,7 +131,7 @@
         "backend": "Express... ing"
       },
       "github": {
-        "frontend": "https://github.com/k0603156/kimyongkuk.resume.builder",
+        "frontend": "https://github.com/k0603156/GithubPageFrontend",
         "backend": null,
         "url": null
       }
