@@ -236,10 +236,9 @@ export default {
 
         draw(d);
       }
-    });
-    window.addEventListener("resize", function() {
-      console.log(1);
-      draw(root);
+      window.addEventListener("resize", function() {
+        draw(root);
+      });
     });
   }
 };
