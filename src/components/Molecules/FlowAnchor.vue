@@ -5,7 +5,7 @@
   </a>
 </template>
 <script>
-import Easings from "../mixin/easings";
+import Easings from "@/mixin/easings";
 export default {
   props: {
     to: { type: String, required: true },

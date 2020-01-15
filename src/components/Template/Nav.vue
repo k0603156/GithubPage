@@ -10,8 +10,8 @@
         aria-expanded="false"
         aria-label="Toggle navigation"
       >
-        <span class="navbar-toggler-icon"
-          ><svg
+        <span class="navbar-toggler-icon">
+          <svg
             x="0px"
             y="0px"
             viewBox="0 0 384.97 384.97"
@@ -30,8 +30,9 @@
                 d="M372.939,264.667H132.333c-6.641,0-12.03,5.39-12.03,12.03c0,6.641,5.39,12.03,12.03,12.03h240.606
 			c6.641,0,12.03-5.39,12.03-12.03C384.97,270.056,379.58,264.667,372.939,264.667z"
               />
-            </g></svg
-        ></span>
+            </g>
+          </svg>
+        </span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
@@ -53,7 +54,7 @@
   </nav>
 </template>
 <script>
-import FlowAnchor from "./FlowAnchor.vue";
+import FlowAnchor from "@Molecules/FlowAnchor.vue";
 export default {
   components: { FlowAnchor },
   data() {

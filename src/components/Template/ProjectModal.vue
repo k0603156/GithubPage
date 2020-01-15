@@ -14,7 +14,7 @@
 
     <div slot="body" v-if="data.src" class="videoWrapper">
       <!-- <img :src="require(`../data/image/${data.src}`)" :alt="data.alt" /> -->
-      <video :src="require(`../data/video/${data.src}`)" controls />
+      <video :src="require(`@/data/video/${data.src}`)" controls />
     </div>
 
     <div slot="footer" class="row">
@@ -56,7 +56,7 @@
 </template>
 
 <script>
-import Modal from "./Modal.vue";
+import Modal from "@Template/Modal.vue";
 import { mapState } from "vuex";
 export default {
   directives: {

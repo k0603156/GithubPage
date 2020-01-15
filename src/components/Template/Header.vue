@@ -3,11 +3,7 @@
     <div id="gradi-header"></div>
     <div id="title-wrapper">
       <h1 :data-text="heading">{{ heading }}</h1>
-      <svg
-        width="100%"
-        viewBox="0 0 1000 100"
-        enable-background="new 0 0 1000 100"
-      >
+      <svg width="100%" viewBox="0 0 1000 100" enable-background="new 0 0 1000 100">
         <defs>
           <filter id="f" x="0" y="0" width="200%" height="200%">
             <feOffset result="offOut" in="SourceAlpha" dx="5" dy="5" />

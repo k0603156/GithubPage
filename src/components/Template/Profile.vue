@@ -39,7 +39,7 @@
 </template>
 <script>
 import { Fragment } from "vue-fragment";
-import SkillTree from "./SkillTree";
+import SkillTree from "@Template/SkillTree";
 export default {
   components: { Fragment, SkillTree },
   props: {
