@@ -32,7 +32,7 @@
     },
     {
       "projectName": "Trello",
-      "projectSubtitle": "트렐로 앱 구현하기",
+      "projectSubtitle": "트렐로 클론",
       "src": "trello.mp4",
       "alt": "Trello_Clone CaptureImg",
       "stack": {
@@ -51,8 +51,8 @@
       "src": null,
       "alt": "Traveler CaptureImg",
       "stack": {
-        "frontend": "React Material-ui",
-        "backend": "Express Sequelize Passport Mysql"
+        "frontend": "React Redux Redux-saga SSR(express)",
+        "backend": "Express Sequelize Passport Mysql + Docker + GoogleCloudePlatform"
       },
       "github": {
         "frontend": null,
@@ -63,7 +63,7 @@
 
     {
       "projectName": "TheCook-Admin",
-      "projectSubtitle": "...",
+      "projectSubtitle": "진행중단",
       "src": null,
       "alt": "TheCook-Admin CaptureImg",
       "stack": {
