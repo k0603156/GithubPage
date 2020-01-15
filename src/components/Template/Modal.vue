@@ -8,7 +8,7 @@
           </div>
 
           <div class="modal-body">
-            <slot class="modal-body" name="body">ing...</slot>
+            <slot class="modal-body" name="body">이미지는 준비중입니다</slot>
           </div>
 
           <div class="modal-footer">

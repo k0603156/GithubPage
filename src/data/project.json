@@ -1,6 +1,21 @@
 {
   "project": [
     {
+      "projectName": "Traveler",
+      "projectSubtitle": "여행 기록을 남길 수 있는 앱",
+      "src": "",
+      "alt": "Traveler CaptureImg",
+      "stack": {
+        "frontend": "React Redux Redux-saga SSR(express) TypeScript",
+        "backend": "Express Sequelize Passport Mysql + Docker + GoogleCloudePlatform"
+      },
+      "github": {
+        "frontend": null,
+        "backend": null,
+        "url": "https://github.com/k0603156/Traveler"
+      }
+    },
+    {
       "projectName": "Intagram Clone",
       "projectSubtitle": "인스타그램 클론",
       "src": "instagram_clone.mp4",
@@ -45,21 +60,6 @@
         "url": "https://github.com/k0603156/Trello"
       }
     },
-    {
-      "projectName": "Traveler",
-      "projectSubtitle": "여행 기록을 남길 수 있는 앱",
-      "src": null,
-      "alt": "Traveler CaptureImg",
-      "stack": {
-        "frontend": "React Redux Redux-saga SSR(express)",
-        "backend": "Express Sequelize Passport Mysql + Docker + GoogleCloudePlatform"
-      },
-      "github": {
-        "frontend": null,
-        "backend": null,
-        "url": "https://github.com/k0603156/Traveler"
-      }
-    },
 
     {
       "projectName": "TheCook-Admin",
@@ -79,6 +79,7 @@
     {
       "projectName": "칼칼닷컴",
       "projectSubtitle": "주방용 칼 관련상품 판매",
+      "website": "https://칼칼.com",
       "src": null,
       "alt": "칼칼.com CaptureImg",
       "stack": {
@@ -93,7 +94,8 @@
     },
     {
       "projectName": "그랜드우성닷컴",
-      "projectSubtitle": "냉장고 판매",
+      "projectSubtitle": "냉장고 판매 쇼핑몰",
+      "website": "https://그랜드우성.com",
       "src": null,
       "alt": "그랜드우성.com CaptureImg",
       "stack": {
@@ -109,6 +111,7 @@
     {
       "projectName": "더쿡.kr",
       "projectSubtitle": "회사 소개사이트",
+      "website": "http://더쿡.kr",
       "src": null,
       "alt": "더쿡.kr CaptureImg",
       "stack": {

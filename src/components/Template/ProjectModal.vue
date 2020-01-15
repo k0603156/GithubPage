@@ -10,6 +10,9 @@
         >&times;</a>
       </h2>
       <h3>{{ data.projectSubtitle }}</h3>
+      <h3 :v-if="data.website">
+        <a v-bind:href="data.website">{{ data.website }}</a>
+      </h3>
     </template>
 
     <div slot="body" v-if="data.src" class="videoWrapper">
