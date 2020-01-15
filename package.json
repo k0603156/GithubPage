@@ -2,6 +2,11 @@
   "name": "gitpage_front",
   "version": "1.0.0",
   "description": "resume page",
+  "author": {
+    "name": "YongkukKim",
+    "email": "syntax-err@kakao.com",
+    "url": "https://github.com/k0603156/"
+  },
   "main": "index.js",
   "private": true,
   "scripts": {
@@ -13,7 +18,6 @@
     "type": "git",
     "url": ""
   },
-  "author": "kimyongkuk",
   "license": "ISC",
   "dependencies": {
     "@babel/polyfill": "^7.6.0",
