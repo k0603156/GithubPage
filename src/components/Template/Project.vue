@@ -2,7 +2,12 @@
   <section class="py-3 px-4">
     <h2>Project</h2>
     <div>
-      <ProjectTable v-for="(project, index) in projects" :key="index" :project="project" />
+      <ProjectTable
+        v-for="(project, index) in project_data"
+        :key="index"
+        :name="project.name"
+        :body="project.body"
+      />
     </div>
   </section>
 </template>
@@ -16,7 +21,21 @@ export default {
   data: function() {
     return { projects: ProjectsData["project"] };
   },
-  computed: {},
+  computed: {
+    project_data: function() {
+      return this.projects.map(project => {
+        const { name, ...body } = project;
+        console.log({
+          name,
+          body
+        });
+        return {
+          name,
+          body
+        };
+      });
+    }
+  },
   methods: {}
 };
 </script>

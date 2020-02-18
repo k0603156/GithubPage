@@ -9,13 +9,7 @@
             <dd class="col-sm-12">{{value}}</dd>
           </fragment>
           <fragment v-else-if="valueIsArray(value)">
-            <ProjectArray :sub_title="sub_title" :project_arr="value" />
-          </fragment>
-          <fragment v-else-if="valueIsObject(value)">
-            <dt class="col-sm-12">{{sub_title}}</dt>
-            <dd class="col-sm-12">
-              <ProjectObject :project_obj="value" />
-            </dd>
+            <ProjectRenderer :sub_title="sub_title" :project_arr="value" />
           </fragment>
         </dl>
       </dd>
@@ -24,45 +18,25 @@
 </template>
 <script>
 import { Fragment } from "vue-fragment";
-import ProjectObject from "./ProjectObject";
-import ProjectArray from "./ProjectArray";
+import ProjectRenderer from "./ProjectRenderer";
 
 export default {
   props: {
-    project: Object
+    name: String,
+    body: Object
   },
   components: {
     Fragment,
-    ProjectObject,
-    ProjectArray
+    ProjectRenderer
   },
   data: function() {
-    const {
-      name,
-      stack,
-      collaborator,
-      definition,
-      url,
-      dependency_projects
-    } = this.project;
+    const { name, ...body } = this.project;
     return {
       name,
-      body: {
-        stack,
-        collaborator,
-        definition,
-        url,
-        dependency_projects
-      }
+      body
     };
   },
-  computed: {
-    infoOne: function() {
-      return Object.entries(this.body).map(
-        ([key, value]) => typeof value !== "undefined" && Array.isArray(value)
-      );
-    }
-  },
+  computed: {},
   methods: {
     valueIsArray: function(value) {
       return typeof value !== "undefined" && Array.isArray(value);
