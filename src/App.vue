@@ -27,17 +27,7 @@
   </fragment>
 </template>
 <script>
-import {
-  Nav,
-  Project,
-  Header,
-  Footer,
-  Profile,
-  Section,
-  ProjectCard,
-  Disqus,
-  ProjectModal
-} from "./components";
+import { Nav, Project, Header, Footer, Disqus } from "./components";
 import { Fragment } from "vue-fragment";
 import { mapState, mapMutations } from "vuex";
 import ProjectData from "./data/project.json";
@@ -52,11 +42,7 @@ export default {
     Nav,
     Header,
     Footer,
-    Disqus,
-    Profile,
-    Section,
-    ProjectCard,
-    ProjectModal
+    Disqus
   },
   computed: {
     ...mapState({ isShowProjectModal: "isShowProjectModal" })

@@ -1,4 +1,5 @@
 import Disqus from "@Organisms/Disqus";
+import ProjectTable from "@Organisms/ProjectTable";
 import FlowAnchor from "@Molecules/FlowAnchor";
 import Footer from "@Template/Footer";
 import Header from "@Template/Header";
@@ -12,6 +13,7 @@ import Project from "@Template/Project";
 
 export {
   Disqus,
+  ProjectTable,
   FlowAnchor,
   Footer,
   Header,

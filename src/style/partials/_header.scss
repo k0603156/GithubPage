@@ -35,28 +35,31 @@
 
   .wrapper:first-of-type {
     height: $outside-wrapper-height;
-    margin-top: -10%;
+    margin-top: -20%;
     flex-wrap: nowrap;
 
     .boxImg {
-      height: 100%;
+      height: $outside-wrapper-height;
       width: $outside-wrapper-height;
-      background-image: url("../data/image/profile.png");
-      background-position: center;
-      background-size: cover;
-      background-repeat: no-repeat;
+      background-color: rgba(0, 0, 0, 0.2);
+      box-shadow: -2px 2px 5px black;
     }
     .wrapper {
       width: auto;
       padding: 5%;
+      box-shadow: 2px 2px 5px black;
       p {
         white-space: nowrap;
         letter-spacing: 0.2rem;
         &[type="name"] {
-          font-size: 1.5rem;
+          font-size: 2rem;
+          line-height: 3rem;
         }
         &[type="email"] {
-          font-size: 1.3rem;
+          font-size: 0.9rem;
+        }
+        &[type="github"] {
+          font-size: 0.6rem;
         }
         &[type="intro"] {
           font-size: 1rem;

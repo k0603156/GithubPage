@@ -5,6 +5,7 @@
       <div class="wrapper column">
         <p type="name">{{ profile.eng_name }}</p>
         <p type="email">{{ profile.email }}</p>
+        <p type="github">{{ profile.github }}</p>
         <p type="intro">{{ profile.intro }}</p>
       </div>
     </div>
