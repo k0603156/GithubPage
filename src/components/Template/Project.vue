@@ -1,5 +1,5 @@
 <template>
-  <section class="py-3">
+  <section class="py-3 px-4">
     <h2>Project</h2>
     <div>
       <ProjectTable v-for="(project, index) in projects" :key="index" :project="project" />

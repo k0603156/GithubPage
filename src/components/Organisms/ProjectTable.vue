@@ -4,29 +4,17 @@
       <dt class="col-sm-2">{{name}}</dt>
       <dd class="col-sm-10">
         <dl class="row" v-for="(value, sub_title) in body" :key="sub_title">
-          <fragment v-if="typeof value !== 'undefined'">
+          <fragment v-if="valueIsString(value)">
+            <dt class="col-sm-12">{{sub_title}}</dt>
+            <dd class="col-sm-12">{{value}}</dd>
+          </fragment>
+          <fragment v-else-if="valueIsArray(value)">
+            <ProjectArray :sub_title="sub_title" :project_arr="value" />
+          </fragment>
+          <fragment v-else-if="valueIsObject(value)">
             <dt class="col-sm-12">{{sub_title}}</dt>
             <dd class="col-sm-12">
-              <fragment v-if="Array.isArray(value)">
-                <a v-href></a>
-                <fragment v-for="(sub_value, index) in value" :key="index">
-                  <fragment v-if="Array.isArray(sub_value)">
-                    <span v-for="(sub_sub_value, index) in sub_value" :key="index">{{sub_sub_value}}</span>
-                  </fragment>
-                  <fragment v-else-if="typeof sub_value === 'object'">{{sub_value}}</fragment>
-                </fragment>
-              </fragment>
-              <fragment v-else-if="typeof value === 'string'">{{value}}</fragment>
-              <fragment v-else-if="typeof value === 'object'">
-                <dl class="row">
-                  <fragment v-for="(value, sub_sub_title) in value" :key="sub_sub_title">
-                    <dt class="col-sm-2">{{sub_sub_title}}</dt>
-                    <dd class="col-sm-10">
-                      <span v-for="(value, index) in value" :key="index">{{value}}</span>
-                    </dd>
-                  </fragment>
-                </dl>
-              </fragment>
+              <ProjectObject :project_obj="value" />
             </dd>
           </fragment>
         </dl>
@@ -36,12 +24,17 @@
 </template>
 <script>
 import { Fragment } from "vue-fragment";
+import ProjectObject from "./ProjectObject";
+import ProjectArray from "./ProjectArray";
+
 export default {
   props: {
     project: Object
   },
   components: {
-    Fragment
+    Fragment,
+    ProjectObject,
+    ProjectArray
   },
   data: function() {
     const {
@@ -63,9 +56,23 @@ export default {
       }
     };
   },
-  computed: {},
+  computed: {
+    infoOne: function() {
+      return Object.entries(this.body).map(
+        ([key, value]) => typeof value !== "undefined" && Array.isArray(value)
+      );
+    }
+  },
   methods: {
-    f: function() {}
+    valueIsArray: function(value) {
+      return typeof value !== "undefined" && Array.isArray(value);
+    },
+    valueIsObject: function(value) {
+      return typeof value !== "undefined" && typeof value === "object";
+    },
+    valueIsString: function(value) {
+      return typeof value !== "undefined" && typeof value === "string";
+    }
   }
 };
 </script>
