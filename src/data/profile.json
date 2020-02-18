@@ -1,16 +1,9 @@
 {
   "profile": {
-    "title": "kimyongkuk",
-    "name": "김용국",
-    "avatar": "https://avatars2.githubusercontent.com/u/16025776?s=460&v=4",
-    "major": "2010-2017 목포대학교 정보보호",
+    "eng_name": "kimyongkuk",
     "email": "syntax-err@kakao.com",
+    "intro": "사서 고생하는 여행을 좋아합니다",
     "github": "https://github.com/k0603156",
-    "into": [
-      {
-        "name": "여행",
-        "intro": "많이 돌아다니는 여행 사치없는 여행 사서 고생하는 여행을 선호합니다."
-      }
-    ]
+    "avatar": "https://avatars2.githubusercontent.com/u/16025776?s=460&v=4"
   }
 }

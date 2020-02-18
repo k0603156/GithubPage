@@ -2,7 +2,7 @@
   <fragment>
     <Nav />
     <Header />
-    <Section sub-title="Profile">
+    <!-- <Section sub-title="Profile">
       <Profile slot="body" :profile="profile" />
     </Section>
     <Section sub-title="Project">
@@ -18,7 +18,7 @@
         v-show="isShowProjectModal"
         @close="SET_SHOW_PROJECT_MODAL(false)"
       />
-    </Section>
+    </Section>-->
 
     <Disqus />
 

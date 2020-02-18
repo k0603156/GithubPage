@@ -45,7 +45,8 @@ export default {
     }
   },
   data() {
-    return ({ title, name, avatar, email, github, into, major } = this.profile);
+    const { title, name, avatar, email, github, into, major } = this.profile
+    return  { title, name, avatar, email, github, into, major } ;
   },
   methods: {
     io: function(el, option) {
