@@ -2,6 +2,7 @@
   <fragment>
     <Nav />
     <Header />
+    <Project />
     <!-- <Section sub-title="Profile">
       <Profile slot="body" :profile="profile" />
     </Section>
@@ -28,10 +29,11 @@
 <script>
 import {
   Nav,
-  Profile,
+  Project,
   Header,
-  Section,
   Footer,
+  Profile,
+  Section,
   ProjectCard,
   Disqus,
   ProjectModal
@@ -46,13 +48,14 @@ export default {
   mixins: [animate],
   components: {
     Fragment,
+    Project,
     Nav,
-    Profile,
     Header,
-    Section,
     Footer,
-    ProjectCard,
     Disqus,
+    Profile,
+    Section,
+    ProjectCard,
     ProjectModal
   },
   computed: {

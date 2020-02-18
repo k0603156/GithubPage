@@ -8,6 +8,7 @@ import Profile from "@Template/Profile";
 import ProjectCard from "@Template/ProjectCard";
 import ProjectModal from "@Template/ProjectModal";
 import Section from "@Template/Section";
+import Project from "@Template/Project";
 
 export {
   Disqus,
@@ -19,5 +20,6 @@ export {
   Profile,
   ProjectCard,
   ProjectModal,
-  Section
+  Section,
+  Project
 };
