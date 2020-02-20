@@ -1,13 +1,13 @@
 <template>
   <fragment>
-    <dt class="col-sm-12">{{sub_title}}</dt>
-    <dd class="col-sm-12">
+    <dt class="col-sm-2">{{sub_title}}</dt>
+    <dd class="col-sm-10">
       <template v-for="(item, index) in project_arr">
         <template v-if="valueIsArray(item)">
           <ProjectRenderer :sub_title="index" :project_arr="item" :key="index" />
         </template>
 
-        <template v-if="valueIsObject(item)">
+        <template v-else-if="valueIsObject(item)">
           <template v-for="(val, key) in item">
             <ProjectRenderer :sub_title="key" :project_arr="val" :key="key" />
           </template>
