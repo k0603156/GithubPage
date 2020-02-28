@@ -26,14 +26,4 @@ $nav-bar-height: 0;
   box-shadow: 3px 3px 7px black;
   border-radius: 3px;
   background: white;
-  &::before {
-    content: "";
-    position: absolute;
-    top: -61px;
-    left: 10px;
-    width: 100px;
-    height: 100px;
-    background: url("../data/image/clip2.png");
-    background-size: contain;
-  }
 }

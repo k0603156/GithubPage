@@ -1,143 +1,102 @@
 {
   "project": [
     {
-      "projectName": "Traveler",
-      "projectSubtitle": "여행 기록을 남길 수 있는 앱",
-      "src": "",
-      "alt": "Traveler CaptureImg",
+      "name": "Travelers",
       "stack": {
-        "frontend": "React Redux Redux-saga SSR(express) TypeScript",
-        "backend": "Express Sequelize Passport Mysql + Docker + GoogleCloudePlatform"
+        "frontend": ["React", "Redux", "Redux-saga", "antd", "TypeScript"],
+        "backend": ["Django", "MariaDB"],
+        "others": ["AWS", "Docker", "NaverCP", "Git", "GithubActions"]
       },
-      "github": {
-        "frontend": null,
-        "backend": null,
-        "url": "https://github.com/k0603156/Traveler"
-      }
+      "collaborator": ["Kimyongkuk", "Jinhwanjeong", "Leejichan"],
+      "definition": "구성원들의 의견을 모아 여행일정을 계획하는 앱",
+      "url": "https://github.com/k0603156/Travelers",
+      "dependency_projects": [
+        {
+          "name": "Travelers-ui",
+          "stack": {
+            "frontend": ["React", "StoryBook", "TypeScript"]
+          },
+          "definition": "Travelers StoryBook",
+          "url": "https://github.com/k0603156/Travelers-ui"
+        },
+        {
+          "name": "Traveler",
+          "stack": {
+            "frontend": ["React", "Redux", "Redux-saga", "TypeScript"],
+            "backend": ["Express SSR/Api", "Sequelize", "Passport", "Mysql"],
+            "others": ["GCP", "Docker", "Git"]
+          },
+          "collaborator": ["kimyongkuk", "jinhwanjeong", "leejichan"],
+          "definition": "Travelers의 개인 연습용",
+          "url": "https://github.com/k0603156/Traveler"
+        }
+      ]
     },
     {
-      "projectName": "Intagram Clone",
-      "projectSubtitle": "인스타그램 클론",
-      "src": "instagram_clone.mp4",
-      "alt": "Intagram Clone CaptureImg",
+      "name": "Intagram",
       "stack": {
-        "frontend": "React+hooks apollo graphql+hooks styled-component",
-        "backend": "Express graphql Prisma mailgun"
+        "frontend": ["React", "Apollo", "Graphql-hooks ", "styled-component"],
+        "backend": ["Express", "Graphql", "Prisma", "Mailgun"]
       },
-      "github": {
+      "definition": "인스타그램 클론",
+      "url": {
         "frontend": "https://github.com/k0603156/Instagram_frontend",
-        "backend": "https://github.com/k0603156/Instagram_backend",
-        "url": null
+        "backend": "https://github.com/k0603156/Instagram_backend"
       }
     },
     {
-      "projectName": "KakaoTalk",
-      "projectSubtitle": "카카오톡 클론",
-      "src": null,
-      "alt": "KakaoTalk Clone CaptureImg",
+      "name": "KakaoTalk",
       "stack": {
-        "frontend": "React+hooks SASS Redux",
-        "backend": ""
+        "frontend": ["React", "Redux", "SASS"]
       },
-      "github": {
-        "frontend": "https://github.com/k0603156/KakaoTalk",
-        "backend": null,
-        "url": null
+      "definition": "카카오톡 클론",
+      "url": {
+        "frontend": "https://github.com/k0603156/KakaoTalk"
       }
     },
     {
-      "projectName": "Trello",
-      "projectSubtitle": "트렐로 클론",
-      "src": "trello.mp4",
-      "alt": "Trello_Clone CaptureImg",
+      "name": "Trello",
       "stack": {
-        "frontend": "Vue vue-router Vuex axios dragula ",
-        "backend": "Express Sequelize Passport"
+        "frontend": ["Vue", "vue-router", "Vuex", "axios", "dragula"],
+        "backend": ["Express", "Sequelize", "Passport"]
       },
-      "github": {
-        "frontend": null,
-        "backend": null,
-        "url": "https://github.com/k0603156/Trello"
-      }
-    },
-
-    {
-      "projectName": "TheCook-Admin",
-      "projectSubtitle": "진행중단",
-      "src": null,
-      "alt": "TheCook-Admin CaptureImg",
-      "stack": {
-        "frontend": "Vue Nuxt.js Vuetify vuex",
-        "backend": "Django docker AWS PUSHER OneSignal"
-      },
-      "github": {
-        "frontend": null,
-        "backend": null,
-        "url": "https://github.com/k0603156/TheCook-Admin"
-      }
+      "definition": "트렐로 클론",
+      "url": "https://github.com/k0603156/Trello"
     },
     {
-      "projectName": "칼칼닷컴",
-      "projectSubtitle": "주방용 칼 관련상품 판매",
-      "website": "https://칼칼.com",
-      "src": null,
-      "alt": "칼칼.com CaptureImg",
+      "name": "칼칼닷컴",
       "stack": {
-        "frontend": "html css jQuery",
-        "backend": "php/gnuBoard,youngcart"
+        "frontend": ["html", "css", "jQuery"],
+        "backend": ["php", "MySql"],
+        "others": ["gnuBoard"]
       },
-      "github": {
-        "frontend": null,
-        "backend": null,
-        "url": null
-      }
+      "definition": "주방용 칼 관련상품 쇼핑몰"
     },
     {
-      "projectName": "그랜드우성닷컴",
-      "projectSubtitle": "냉장고 판매 쇼핑몰",
-      "website": "https://그랜드우성.com",
-      "src": null,
-      "alt": "그랜드우성.com CaptureImg",
+      "name": "그랜드우성닷컴",
       "stack": {
-        "frontend": "html css jQuery",
-        "backend": "php/gnuBoard,youngcart"
+        "frontend": ["html", "css", "jQuery"],
+        "backend": ["php", "MySql"],
+        "others": ["gnuBoard"]
       },
-      "github": {
-        "frontend": null,
-        "backend": null,
-        "url": null
-      }
+      "definition": "냉장고 쇼핑몰"
     },
     {
-      "projectName": "더쿡.kr",
-      "projectSubtitle": "회사 소개사이트",
-      "website": "http://더쿡.kr",
-      "src": null,
-      "alt": "더쿡.kr CaptureImg",
+      "name": "더쿡.kr",
       "stack": {
-        "frontend": "html css jQuery PWA",
-        "backend": "php/gnuBoard"
+        "frontend": ["html", "css", "jQuery", "PWA"],
+        "backend": ["php", "MySql"],
+        "others": ["gnuBoard"]
       },
-      "github": {
-        "frontend": null,
-        "backend": null,
-        "url": null
-      }
+      "definition": "회사 소개사이트"
     },
     {
-      "projectName": "This Page",
-      "projectSubtitle": "Github Page + cafe24 node.js",
-      "src": null,
-      "alt": "Github Page CaptureImg",
+      "name": "This Page",
       "stack": {
-        "frontend": "Vue Vuex axios SASS Disqus",
-        "backend": "Express... ing"
+        "frontend": ["Vue", "Vuex", "axios", "SASS", "Disqus"]
       },
-      "github": {
-        "frontend": "https://github.com/k0603156/GithubPageFrontend",
-        "backend": null,
-        "url": null
-      }
+      "definition": "Github Page",
+      "url": "https://github.com/k0603156/GithubPageFrontend"
     }
   ]
 }

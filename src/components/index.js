@@ -1,23 +1,9 @@
-import Disqus from "@Organisms/Disqus";
-import FlowAnchor from "@Molecules/FlowAnchor";
-import Footer from "@Template/Footer";
-import Header from "@Template/Header";
-import Modal from "@Template/Modal";
-import Nav from "@Template/Nav";
-import Profile from "@Template/Profile";
-import ProjectCard from "@Template/ProjectCard";
-import ProjectModal from "@Template/ProjectModal";
-import Section from "@Template/Section";
+import Disqus from "./Disqus";
+import FlowAnchor from "./FlowAnchor";
+import Footer from "./Footer";
+import Header from "./Header";
+import Nav from "./Nav";
+import Section from "./Section";
+import Project from "./Project";
 
-export {
-  Disqus,
-  FlowAnchor,
-  Footer,
-  Header,
-  Modal,
-  Nav,
-  Profile,
-  ProjectCard,
-  ProjectModal,
-  Section
-};
+export { Disqus, FlowAnchor, Footer, Header, Nav, Section, Project };
