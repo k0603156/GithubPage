@@ -54,7 +54,7 @@
   </nav>
 </template>
 <script>
-import FlowAnchor from "@Molecules/FlowAnchor.vue";
+import FlowAnchor from "./FlowAnchor.vue";
 export default {
   components: { FlowAnchor },
   data() {

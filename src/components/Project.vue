@@ -31,7 +31,7 @@
 </template>
 <script>
 import { Fragment } from "vue-fragment";
-import ProjectRenderer from "@/components/Organisms/ProjectRenderer";
+import ProjectRenderer from "./ProjectRenderer";
 import ProjectsData from "@/data/project";
 export default {
   components: {
