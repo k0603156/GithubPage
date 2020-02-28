@@ -1,7 +1,7 @@
 <template>
   <fragment>
     <section id="section-project" class="py-3 px-5" v-for="(val, key) in pdata" :key="key">
-      <h2 class="mb-5">{{key}}</h2>
+      <h2 class="mb-5 font-weight-bold">{{key}}</h2>
       <div>
         <Parser :propsData="val" />
       </div>

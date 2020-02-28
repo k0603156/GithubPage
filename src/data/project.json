@@ -1,5 +1,5 @@
 {
-  "project": [
+  "PROJECT": [
     {
       "Travelers": "Travelers",
       "stack": {
@@ -10,7 +10,7 @@
       "collaborator": ["Kimyongkuk", "Jinhwanjeong", "Leejichan"],
       "definition": "구성원들의 의견을 모아 여행일정을 계획하는 앱",
       "url": "https://github.com/k0603156/Travelers",
-      "dependency_projects": [
+      "-": [
         {
           "Travelers-ui": "Travelers-ui",
           "stack": {
