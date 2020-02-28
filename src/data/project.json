@@ -1,7 +1,7 @@
 {
   "project": [
     {
-      "name": "Travelers",
+      "Travelers": "Travelers",
       "stack": {
         "frontend": ["React", "Redux", "Redux-saga", "antd", "TypeScript"],
         "backend": ["Django", "MariaDB"],
@@ -12,7 +12,7 @@
       "url": "https://github.com/k0603156/Travelers",
       "dependency_projects": [
         {
-          "name": "Travelers-ui",
+          "Travelers-ui": "Travelers-ui",
           "stack": {
             "frontend": ["React", "StoryBook", "TypeScript"]
           },
@@ -20,7 +20,7 @@
           "url": "https://github.com/k0603156/Travelers-ui"
         },
         {
-          "name": "Traveler",
+          "Traveler": "Traveler",
           "stack": {
             "frontend": ["React", "Redux", "Redux-saga", "TypeScript"],
             "backend": ["Express SSR/Api", "Sequelize", "Passport", "Mysql"],
@@ -33,7 +33,7 @@
       ]
     },
     {
-      "name": "Intagram",
+      "Intagram": "Intagram",
       "stack": {
         "frontend": ["React", "Apollo", "Graphql-hooks ", "styled-component"],
         "backend": ["Express", "Graphql", "Prisma", "Mailgun"]
@@ -45,7 +45,7 @@
       }
     },
     {
-      "name": "KakaoTalk",
+      "KakaoTalk": "KakaoTalk",
       "stack": {
         "frontend": ["React", "Redux", "SASS"]
       },
@@ -55,7 +55,7 @@
       }
     },
     {
-      "name": "Trello",
+      "Trello": "Trello",
       "stack": {
         "frontend": ["Vue", "vue-router", "Vuex", "axios", "dragula"],
         "backend": ["Express", "Sequelize", "Passport"]
@@ -64,7 +64,7 @@
       "url": "https://github.com/k0603156/Trello"
     },
     {
-      "name": "칼칼닷컴",
+      "칼칼닷컴": "칼칼닷컴",
       "stack": {
         "frontend": ["html", "css", "jQuery"],
         "backend": ["php", "MySql"],
@@ -73,7 +73,7 @@
       "definition": "주방용 칼 관련상품 쇼핑몰"
     },
     {
-      "name": "그랜드우성닷컴",
+      "그랜드우성닷컴": "그랜드우성닷컴",
       "stack": {
         "frontend": ["html", "css", "jQuery"],
         "backend": ["php", "MySql"],
@@ -82,7 +82,7 @@
       "definition": "냉장고 쇼핑몰"
     },
     {
-      "name": "더쿡.kr",
+      "더쿡.kr": "더쿡.kr",
       "stack": {
         "frontend": ["html", "css", "jQuery", "PWA"],
         "backend": ["php", "MySql"],
@@ -91,7 +91,7 @@
       "definition": "회사 소개사이트"
     },
     {
-      "name": "This Page",
+      "This Page": "This Page",
       "stack": {
         "frontend": ["Vue", "Vuex", "axios", "SASS", "Disqus"]
       },

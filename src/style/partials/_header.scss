@@ -34,12 +34,12 @@
   }
 
   .wrapper:first-of-type {
-    height: $outside-wrapper-height;
+    min-height: $outside-wrapper-height;
     margin-top: -20%;
     flex-wrap: nowrap;
 
     .boxImg {
-      height: $outside-wrapper-height;
+      // height: $outside-wrapper-height;
       width: $outside-wrapper-height;
       background-color: rgba(0, 0, 0, 0.2);
       box-shadow: -2px 2px 5px black;
