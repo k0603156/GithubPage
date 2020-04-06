@@ -1,8 +1,7 @@
 <template>
   <header id="header" class="px-0 container-fluid">
-    <div class="wrapper row">
-      <div class="boxImg" />
-      <div class="wrapper column">
+    <div class="wrapper column">
+      <div>
         <p type="name">{{ profile.eng_name }}</p>
         <p type="email">{{ profile.email }}</p>
         <p type="github">{{ profile.github }}</p>

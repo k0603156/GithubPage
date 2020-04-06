@@ -40,9 +40,6 @@
             <FlowAnchor to="header" srOnly="true">Home</FlowAnchor>
           </li>
           <li class="nav-item">
-            <FlowAnchor to="section-profile">Profile</FlowAnchor>
-          </li>
-          <li class="nav-item">
             <FlowAnchor to="section-project">Projcet</FlowAnchor>
           </li>
           <li class="nav-item">

@@ -29,6 +29,7 @@ export default {
     },
     scrollIt: function(target, duration, easing, callback) {
       const start = window.pageYOffset;
+
       const startTime =
         "now" in window.performance ? performance.now() : new Date().getTime();
 
@@ -50,7 +51,6 @@ export default {
           ? documentHeight - windowHeight
           : targetOffset
       );
-
       if ("requestAnimationFrame" in window === false) {
         window.scroll(0, targetOffsetToScroll);
         if (callback) {
@@ -71,7 +71,7 @@ export default {
           0,
           Math.ceil(timeFunction * (targetOffsetToScroll - start) + start)
         );
-        console.log(window.pageYOffset, targetOffsetToScroll);
+
         if (Math.ceil(window.pageYOffset) === targetOffsetToScroll) {
           if (callback) {
             callback();
